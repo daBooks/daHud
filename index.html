@@ -258,7 +258,7 @@
        for(let attr of elem.attributes) {
         attrs[attr.name] = attr.value;
        }
-       attes['content'] = elem.innerHTML;
+       attrs['content'] = elem.innerHTML;
        list.push(attrs); 
       });
       return {
