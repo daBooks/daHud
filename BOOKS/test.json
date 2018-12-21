@@ -1,3 +1,7 @@
-[
-  "Basics of Linden Language"
-]
+{  
+   "title":"Super Duper First Book",
+   "style":"version1",
+   "pages":[  
+      "Basics of Linden Language"
+   ]
+}
