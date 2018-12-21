@@ -206,7 +206,7 @@
       let title = tut.querySelector('.title');
       let name = prompt("Name your tutorial", title ? title.textContent : "");
       if (name) {
-        download(name + ".json", JSON.stringify(getJson()));
+        download(name + ".json", JSON.stringify(getJson(), null, 2));
       }
     })
 
