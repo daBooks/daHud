@@ -160,16 +160,16 @@
           let rect = last.getBoundingClientRect();
           switch (e.keyCode) {
             case 37: // left
-              last.style.left = Math.round((rect.x - tutRect.x) / tutRect.width * 100)  - .2  + "%";
+              last.style.left = Math.round((rect.x - tutRect.x) / tutRect.width * 1000) / 10  - .2  + "%";
               break;
             case 38: // up
-              last.style.top = Math.round((rect.y - tutRect.y) / tutRect.height * 100)  - .2  + "%";
+              last.style.top = Math.round((rect.y - tutRect.y) / tutRect.height * 1000) / 10  - .2  + "%";
               break;
             case 39: // right
-              last.style.left = Math.round((rect.x- tutRect.x) / tutRect.width * 100)  + .2  + "%";
+              last.style.left = Math.round((rect.x- tutRect.x) / tutRect.width * 1000) / 10  + .2  + "%";
               break;
             case 40: // down
-              last.style.top = Math.round((rect.y - tutRect.y) / tutRect.height * 100)  + .2  + "%";
+              last.style.top = Math.round((rect.y - tutRect.y) / tutRect.height * 1000) / 10  + .2  + "%";
               break;
           }
         } else {
