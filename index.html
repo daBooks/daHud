@@ -190,16 +190,28 @@
       addElem(div);
     });
 
-      let div = document.createElement('div');
     document.addEventListener('paste', (e) => {
       if (last && last.getAttribute('contenteditable') ==='true') return;
+      let div = document.createElement('div');
       let html = e.clipboardData.getData('text/html');
+      let imageData = e.clipboardData.items[0] && e.clipboardData.items[0].type === 'image/png' ? e.clipboardData.items[0].getAsFile() : null;
+      div.setAttribute('class', 'elem paste');
       if (html) {
         div.innerHTML = e.clipboardData.getData('text/html');
+        div.classList.add('html');
+      } else if (imageData) { 
+        var reader = new FileReader();
+        let img = new Image();
+        reader.onload = function(event){
+          img.src = event.target.result
+        };
+        reader.readAsDataURL(imageData);
+        div.appendChild(img);
+        div.classList.add('image');
       } else {
+        div.classList.add('plain');
         div.textContent = e.clipboardData.getData('text/plain');
       }
-      div.setAttribute('class', 'elem paste');
       let elems = div.querySelectorAll('.elem');
       if (elems.length) {
         elems.forEach((elem) => addElem(elem));
@@ -265,7 +277,6 @@
         attrs[attr.name] = attr.value;
        }
        attrs['content'] = elem.innerHTML;
-       attrs['title']
        list.push(attrs); 
       });
       return {
