@@ -190,8 +190,9 @@
       addElem(div);
     });
 
-    document.addEventListener('paste', (e) => {
       let div = document.createElement('div');
+    document.addEventListener('paste', (e) => {
+      if (last && last.getAttribute('contenteditable') ==='true') return;
       let html = e.clipboardData.getData('text/html');
       if (html) {
         div.innerHTML = e.clipboardData.getData('text/html');
@@ -199,7 +200,12 @@
         div.textContent = e.clipboardData.getData('text/plain');
       }
       div.setAttribute('class', 'elem paste');
-      addElem(div);
+      let elems = div.querySelectorAll('.elem');
+      if (elems.length) {
+        elems.forEach((elem) => addElem(elem));
+      } else {
+        addElem(div);
+      }
     });
 
     document.querySelector('button.export').addEventListener('click', (e) => {
@@ -224,10 +230,12 @@
     });
 
     document.querySelector('.actions .copy').addEventListener('click', (event) => {;  
+      tut.style.userSelect = 'auto';
       var range = document.createRange();  
       range.selectNodeContents(tut);  
       window.getSelection().addRange(range);  
-      document.execCommand('copy');  
+      document.execCommand('copy');
+      setTimeout(() => tut.style.userSelect = '');
     });
 
     function addElem(elem) {
@@ -257,6 +265,7 @@
         attrs[attr.name] = attr.value;
        }
        attrs['content'] = elem.innerHTML;
+       attrs['title']
        list.push(attrs); 
       });
       return {
