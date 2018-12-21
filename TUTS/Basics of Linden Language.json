@@ -1,0 +1,162 @@
+{  
+   "class":"tut",
+   "dimensions":{  
+      "x":8,
+      "y":156.75,
+      "width":1024,
+      "height":1024,
+      "top":156.75,
+      "right":1032,
+      "bottom":1180.75,
+      "left":8
+   },
+   "list":[  
+      {  
+         "class":"elem title",
+         "tabindex":"0",
+         "content":"Basics of Linden Language"
+      },
+      {  
+         "class":"elem code",
+         "tabindex":"0",
+         "style":"left: 8.92334%; top: 24.0601%;",
+         "contenteditable":"false",
+         "content":"llSetText(\"Hello\",&lt;1,0,0&gt;, 1);"
+      },
+      {  
+         "class":"elem comment",
+         "tabindex":"0",
+         "style":"left: 2%; top: 12%;",
+         "contenteditable":"false",
+         "content":"two lower case L's"
+      },
+      {  
+         "class":"elem comment",
+         "tabindex":"0",
+         "style":"left: 52.1851%; top: 12.4786%;",
+         "contenteditable":"false",
+         "content":"quotes"
+      },
+      {  
+         "class":"elem comment",
+         "tabindex":"0",
+         "style":"left: 13.4766%; top: 38.7085%;",
+         "contenteditable":"false",
+         "content":"open parenthesis"
+      },
+      {  
+         "class":"elem comment",
+         "tabindex":"0",
+         "style":"left: 70.1172%; top: 38.3392%;",
+         "contenteditable":"false",
+         "content":"semi colon"
+      },
+      {  
+         "tabindex":"0",
+         "class":"elem arrow",
+         "style":"left: 86.9140625%; top: 31.4453125%",
+         "content":""
+      },
+      {  
+         "tabindex":"0",
+         "class":"elem arrow",
+         "style":"left: 31.640625%; top: 31.4453125%",
+         "content":""
+      },
+      {  
+         "tabindex":"0",
+         "class":"elem arrow down",
+         "style":"left: 9.9609375%; top: 17.96875%",
+         "content":""
+      },
+      {  
+         "tabindex":"0",
+         "class":"elem arrow down",
+         "style":"left: 54.296875%; top: 18.5546875%",
+         "content":""
+      },
+      {  
+         "class":"elem separator",
+         "tabindex":"0",
+         "style":"left: .3%; top: 48%;",
+         "content":""
+      },
+      {  
+         "class":"elem code",
+         "tabindex":"0",
+         "style":"left: 11%; top: 63.5%;",
+         "content":"llSetText(\"Hello\",&lt;1,0,0&gt;, 1);"
+      },
+      {  
+         "class":"elem comment",
+         "tabindex":"0",
+         "style":"left: 5%; top: 53%;",
+         "content":"name of function"
+      },
+      {  
+         "class":"elem comment minor",
+         "tabindex":"0",
+         "style":"left: 51.5%; top: 53.5%;",
+         "content":"hold <strong>shift</strong> and <strong>comma</strong>"
+      },
+      {  
+         "class":"elem comment",
+         "tabindex":"0",
+         "style":"left: 9.5%; top: 77.4%;",
+         "content":"uppercase"
+      },
+      {  
+         "class":"elem comment minor",
+         "tabindex":"0",
+         "style":"left: 57.6%; top: 78%; padding: 0 .1rem;",
+         "content":"hold <strong>shift</strong> and <strong>period</strong>"
+      },
+      {  
+         "class":"elem comment",
+         "tabindex":"0",
+         "style":"left: 27%; top: 86%; font-size: 1.5rem;",
+         "content":"write anything here"
+      },
+      {  
+         "class":"elem arrow long",
+         "tabindex":"0",
+         "style":"left: 43.75%; top: 73.2421875%",
+         "content":""
+      },
+      {  
+         "class":"elem arrow",
+         "tabindex":"0",
+         "style":"left: 14.453125%; top: 70.5078125%",
+         "content":""
+      },
+      {  
+         "class":"elem arrow",
+         "tabindex":"0",
+         "style":"left: 24.0234375%; top: 70.703125%",
+         "content":""
+      },
+      {  
+         "class":"elem arrow",
+         "tabindex":"0",
+         "style":"left: 78.3203125%; top: 70.8984375%",
+         "content":""
+      },
+      {  
+         "class":"elem arrow down",
+         "tabindex":"0",
+         "style":"left: 19.7265625%; top: 58.984375%",
+         "content":""
+      },
+      {  
+         "class":"elem arrow down",
+         "tabindex":"0",
+         "style":"left: 62.109375%; top: 58.203125%",
+         "content":""
+      },
+      {  
+         "class":"elem footer",
+         "tabindex":"0",
+         "content":"<strong>case sensitive</strong><span>llsettext won't work</span>"
+      }
+   ]
+}
