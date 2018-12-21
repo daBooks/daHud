@@ -1,0 +1,22 @@
+{
+  "class": "tut",
+  "dimensions": {
+    "x": 8,
+    "y": 81.04167175292969,
+    "width": 512,
+    "height": 512,
+    "top": 81.04167175292969,
+    "right": 520,
+    "bottom": 593.0416717529297,
+    "left": 8
+  },
+  "list": [
+    {
+      "class": "elem paste html",
+      "tabindex": "0",
+      "contenteditable": "false",
+      "style": "top: 0.78125%; left: 6.41276%;",
+      "content": "\n\n<!--StartFragment--><div style=\"color: #d4d4d4;background-color: #1e1e1e;font-family: Consolas, 'Courier New', monospace;font-weight: normal;font-size: 18px;line-height: 24px;white-space: pre;\"><div><span style=\"color: #808080;\">&lt;!</span><span style=\"color: #569cd6;\">doctype</span><span style=\"color: #d4d4d4;\"> </span><span style=\"color: #9cdcfe;\">html</span><span style=\"color: #808080;\">&gt;</span></div><div><span style=\"color: #808080;\">&lt;</span><span style=\"color: #569cd6;\">html</span><span style=\"color: #808080;\">&gt;</span></div><div><span style=\"color: #808080;\">&lt;</span><span style=\"color: #569cd6;\">head</span><span style=\"color: #808080;\">&gt;</span></div><div><span style=\"color: #808080;\">&lt;</span><span style=\"color: #569cd6;\">title</span><span style=\"color: #808080;\">&gt;</span><span style=\"color: #d4d4d4;\"> Object Oriented JavaScript </span><span style=\"color: #808080;\">&lt;/</span><span style=\"color: #569cd6;\">title</span><span style=\"color: #808080;\">&gt;</span></div><div><span style=\"color: #808080;\">&lt;</span><span style=\"color: #569cd6;\">meta</span><span style=\"color: #d4d4d4;\"> </span><span style=\"color: #9cdcfe;\">charset</span><span style=\"color: #d4d4d4;\">=</span><span style=\"color: #ce9178;\">\"UTF-8\"</span><span style=\"color: #808080;\">&gt;</span></div><br><div><span style=\"color: #808080;\">&lt;</span><span style=\"color: #569cd6;\">script</span><span style=\"color: #d4d4d4;\"> </span><span style=\"color: #9cdcfe;\">src</span><span style=\"color: #d4d4d4;\">=</span><span style=\"color: #ce9178;\">\"record.js\"</span><span style=\"color: #808080;\">&gt;</span><span style=\"color: #808080;\">&lt;</span><span style=\"color: #808080;\">/</span><span style=\"color: #569cd6;\">script</span><span style=\"color: #808080;\">&gt;</span></div><div><span style=\"color: #808080;\">&lt;/</span><span style=\"color: #569cd6;\">head</span><span style=\"color: #808080;\">&gt;</span></div><br><div><span style=\"color: #808080;\">&lt;</span><span style=\"color: #569cd6;\">body</span><span style=\"color: #808080;\">&gt;</span></div><br><div><span style=\"color: #d4d4d4;\">  </span><span style=\"color: #808080;\">&lt;</span><span style=\"color: #569cd6;\">script</span><span style=\"color: #808080;\">&gt;</span></div><br><div><span style=\"color: #d4d4d4;\">    </span><span style=\"color: #4ec9b0;\">console</span><span style=\"color: #d4d4d4;\">.</span><span style=\"color: #dcdcaa;\">log</span><span style=\"color: #d4d4d4;\">(</span><span style=\"color: #4ec9b0;\">JSON</span><span style=\"color: #d4d4d4;\">.</span><span style=\"color: #dcdcaa;\">stringify</span><span style=\"color: #d4d4d4;\">(</span><span style=\"color: #9cdcfe;\">myRecord</span><span style=\"color: #d4d4d4;\">[</span><span style=\"color: #b5cea8;\">1</span><span style=\"color: #d4d4d4;\">]));</span></div><br><div><span style=\"color: #d4d4d4;\">  </span><span style=\"color: #808080;\">&lt;</span><span style=\"color: #808080;\">/</span><span style=\"color: #569cd6;\">script</span><span style=\"color: #808080;\">&gt;</span></div><br><div><span style=\"color: #808080;\">&lt;</span><span style=\"color: #569cd6;\">div</span><span style=\"color: #d4d4d4;\"> </span><span style=\"color: #9cdcfe;\">id</span><span style=\"color: #d4d4d4;\">=</span><span style=\"color: #ce9178;\">\"theJsonOutput\"</span><span style=\"color: #808080;\">&gt;&lt;/</span><span style=\"color: #569cd6;\">div</span><span style=\"color: #808080;\">&gt;</span></div><br><div><span style=\"color: #808080;\">&lt;/</span><span style=\"color: #569cd6;\">body</span><span style=\"color: #808080;\">&gt;</span></div><div><span style=\"color: #808080;\">&lt;/</span><span style=\"color: #569cd6;\">html</span><span style=\"color: #808080;\">&gt;</span></div></div><!--EndFragment-->\n\n"
+    }
+  ]
+}
