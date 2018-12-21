@@ -218,9 +218,7 @@
       var input = event.target;
       var reader = new FileReader();
       reader.onload = function(){
-        let div = document.createElement('div');
-        div.innerHTML = reader.result;
-        tut.innerHTML = div.querySelector('.tut').innerHTML;
+        jsonToTut(JSON.parse(reader.result));
       };
       reader.readAsText(input.files[0]);
     });
@@ -272,6 +270,25 @@
     function applyStyle() {
       let style = document.querySelector('select.style').value;
       document.getElementById('the-style').href = 'HUD/styles/' + style;
+    }
+
+    function jsonToTut(json) {
+      tut.innerHTML = '';
+      tut.setAttribute('class', json.class);
+      let html = document.querySelector('html');
+      tut.style.width = json.dimensions.width / html.style.fontSize + 'rem';
+      tut.style.height = json.dimensions.height / html.style.fontSize + 'rem';
+      for (let item of json.list) {
+        let elem = document.createElement('div');
+        for (let attr in item) {
+          if (attr == 'content') {
+            elem.innerHTML = item['content'];
+          } else {
+            elem.setAttribute(attr, item[attr]);
+          }
+        }
+        tut.appendChild(elem);
+      }
     }
   </script>
 </body>
