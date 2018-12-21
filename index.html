@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tutorial Maker</title>
+  <style>
+    html {
+      font-size: 32px;
+    }
+
+    .controls {
+      box-sizing: border-box;
+      width: 32rem;
+      padding: .6rem;
+      border: 1px solid #ddd;
+      border-radius: .3rem;
+      margin-bottom: .6rem;
+    }
+
+    .actions {
+      margin-top: .6rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .controls * {
+      font-size: .8rem;
+    }
+
+  </style>
+  <link id="the-style" rel="stylesheet" href="">
+</head>
+<body>
+
+  <div class="controls">
+      <div class="add">
+        <input class="text" placeholder="text">
+        <select>
+            <option value="title">Title</option>
+            <option value="footer">Footer</option>
+            <option value="comment">Comment</option>
+            <option value="comment minor">Comment (minor)</option>
+            <option value="code">Code</option>
+            <option value="arrow">Arrow</option>
+            <option value="arrow down">Arrow (down)</option>
+            <option value="arrow long">Arrow (long)</option>
+            <option value="separator">Separator</option>
+        </select>
+        <button>add</button>
+      </div>
+    
+      <div class="actions">
+        <button class="export">Export</button>
+        <input class="load" type="file" />
+        <button class="copy">Copy</button>
+        <select class="style">
+          <option value="version1.css">version1</option>
+        </select>
+        <button class="clear">Clear</button>
+      </div>
+  </div>
+
+  
+
+  <div class="tut" tabindex="0">
+    <div class="elem title" tabindex="0">Basics of Linden Language</div>
+    <div class="elem code" tabindex="0" style="left: 8.92334%; top: 24.0601%;" contenteditable="false">llSetText("Hello",&lt;1,0,0&gt;, 1);</div>
+    <div class="elem comment" tabindex="0" style="left: 2%; top: 12%;" contenteditable="false">two lower case L's</div>
+    <div class="elem comment" tabindex="0" style="left: 52.1851%; top: 12.4786%;" contenteditable="false">quotes</div>
+    <div class="elem comment" tabindex="0" style="left: 13.4766%; top: 38.7085%;" contenteditable="false">open parenthesis</div>
+    <div class="elem comment" tabindex="0" style="left: 70.1172%; top: 38.3392%;" contenteditable="false">semi colon</div>
+
+    <div tabindex="0" class="elem arrow" style="left: 86.9140625%; top: 31.4453125%"></div>
+    <div tabindex="0" class="elem arrow" style="left: 31.640625%; top: 31.4453125%"></div>
+    <div tabindex="0" class="elem arrow down" style="left: 9.9609375%; top: 17.96875%"></div>
+    <div tabindex="0" class="elem arrow down" style="left: 54.296875%; top: 18.5546875%"></div>
+
+    <div class="elem separator" tabindex="0" style="left: .3%; top: 48%;"></div>
+    <div class="elem code" tabindex="0" style="left: 11%; top: 63.5%;">llSetText("Hello",&lt;1,0,0&gt;, 1);</div>
+    <div class="elem comment" tabindex="0" style="left: 5%; top: 53%;">name of function</div>
+    <div class="elem comment minor" tabindex="0" style="left: 51.5%; top: 53.5%;">hold <strong>shift</strong> and <strong>comma</strong></div>
+    <div class="elem comment" tabindex="0" style="left: 9.5%; top: 77.4%;">uppercase</div>
+    <div class="elem comment minor" tabindex="0" style="left: 57.6%; top: 78%; padding: 0 .1rem;">hold <strong>shift</strong> and <strong>period</strong></div>
+    <div class="elem comment" tabindex="0" style="left: 27%; top: 86%; font-size: 1.5rem;">write anything here</div>
+
+    <div class="elem arrow long" tabindex="0" style="left: 43.75%; top: 73.2421875%"></div>
+    <div class="elem arrow" tabindex="0" style="left: 14.453125%; top: 70.5078125%"></div>
+    <div class="elem arrow" tabindex="0" style="left: 24.0234375%; top: 70.703125%"></div>
+    <div class="elem arrow" tabindex="0" style="left: 78.3203125%; top: 70.8984375%"></div>
+    <div class="elem arrow down" tabindex="0" style="left: 19.7265625%; top: 58.984375%"></div>
+    <div class="elem arrow down" tabindex="0" style="left: 62.109375%; top: 58.203125%"></div>
+    <div class="elem footer" tabindex="0"><strong>case sensitive</strong><span>llsettext won't work</span></div>
+  </div>
+
+  <script>
+    let tut = document.querySelector('.tut');
+    let current = null;
+    let dblCurrent = null;
+    let last = null;
+    let x = '0';
+    let y = '0';
+    let startX;
+    let startY;
+    tut.addEventListener('mousedown', (e) => {
+      current = e.target.closest('.elem');
+      if (last && last !== current) {
+        last.setAttribute('contenteditable', false);
+      }
+      if (current) {
+        last = current;
+        if (dblCurrent === current) {
+          current.setAttribute('contenteditable', true);
+          return;
+        }
+        let rect = current.getBoundingClientRect();
+        startX = rect.x - e.screenX;
+        startY = rect.y - e.screenY;
+        if (last) {
+          tut.appendChild(current);
+        }
+        dblCurrent = current;
+        setTimeout(() => {
+          dblCurrent = null;
+        }, 200)
+      }
+    });
+    tut.addEventListener('mouseup', () => {
+      if (current) {
+        current = null;
+      }
+    });
+
+    tut.addEventListener('mousemove', (e) => {
+      if (current && last.getAttribute('contenteditable') !== 'true') {
+        let rect = current.getBoundingClientRect();
+        let parentRect = tut.getBoundingClientRect();
+        y = current.style.top = (startY + e.screenY - parentRect.y) / parentRect.height * 100 + "%";
+        x = current.style.left = (startX + e.screenX - parentRect.x) / parentRect.width * 100 + "%";
+      }
+    });
+
+    let lastKey = null;
+    let keyTimer = null;
+    document.addEventListener('keydown', (e) => {
+      if(last && last.getAttribute('contenteditable') === 'true') {
+        if (e.keyCode == 27) {
+          last.setAttribute('contenteditable', false);
+        }
+        return;
+      }
+      if (e.keyCode == 46 && last) {
+        tut.removeChild(last);
+        return;
+      }
+      if (e.keyCode >= 37 && e.keyCode <= 40 && last) {
+        if (lastKey === e.keyCode || !keyTimer) {
+          let tutRect = tut.getBoundingClientRect();
+          let rect = last.getBoundingClientRect();
+          switch (e.keyCode) {
+            case 37: // left
+              last.style.left = Math.round((rect.x - tutRect.x) / tutRect.width * 100)  - 1  + "%";
+              break;
+            case 38: // up
+              last.style.top = Math.round((rect.y - tutRect.y) / tutRect.height * 100)  - 1  + "%";
+              break;
+            case 39: // right
+              last.style.left = Math.round((rect.x- tutRect.x) / tutRect.width * 100)  + 1  + "%";
+              break;
+            case 40: // down
+              last.style.top = Math.round((rect.y - tutRect.y) / tutRect.height * 100)  + 1  + "%";
+              break;
+          }
+        } else {
+          keyTimer = setTimeout(() => {lastKey = e.keyCode; keyTimer = null;}, 500);
+        }
+        e.preventDefault();
+      }
+    });
+    document.addEventListener('keyup', () => {lastKey = null; clearTimeout(keyTimer); keyTimer = null;});
+    
+    document.querySelector('select.style').addEventListener('change', applyStyle);
+    applyStyle();
+
+    document.querySelector('.add button').addEventListener('click', (e) => {
+      let div = document.createElement('div');
+      div.setAttribute('class', 'elem ' + document.querySelector('.add select').value);
+      div.textContent = document.querySelector('.add input').value;
+      addElem(div);
+    });
+
+    document.addEventListener('paste', (e) => {
+      let div = document.createElement('div');
+      let html = e.clipboardData.getData('text/html');
+      if (html) {
+        div.innerHTML = e.clipboardData.getData('text/html');
+      } else {
+        div.textContent = e.clipboardData.getData('text/plain');
+      }
+      div.setAttribute('class', 'elem paste');
+      addElem(div);
+    });
+
+    document.querySelector('button.export').addEventListener('click', (e) => {
+      let title = tut.querySelector('.title');
+      let name = prompt("Name your tutorial", title ? title.textContent : "");
+      if (name) {
+        download(name + ".json", JSON.stringify(getJson()));
+      }
+    })
+
+    document.querySelector('button.clear').addEventListener('click', (e) => {
+      tut.innerHTML = '';
+    })
+
+    document.querySelector('.actions .load').addEventListener('change', (event) => {
+      var input = event.target;
+      var reader = new FileReader();
+      reader.onload = function(){
+        let div = document.createElement('div');
+        div.innerHTML = reader.result;
+        tut.innerHTML = div.querySelector('.tut').innerHTML;
+      };
+      reader.readAsText(input.files[0]);
+    });
+
+    document.querySelector('.actions .copy').addEventListener('click', (event) => {;  
+      var range = document.createRange();  
+      range.selectNodeContents(tut);  
+      window.getSelection().addRange(range);  
+      document.execCommand('copy');  
+    });
+
+    function addElem(elem) {
+      elem.classList.add('elem');
+      elem.setAttribute('tabindex', 0);
+      tut.appendChild(elem);
+    }
+
+    function download(filename, text) {
+      var element = document.createElement('a');
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+      element.setAttribute('download', filename);
+
+      element.style.display = 'none';
+      document.body.appendChild(element);
+
+      element.click();
+
+      document.body.removeChild(element);
+    }
+
+    function getJson(title) {
+      let list = []; 
+      tut.querySelectorAll('.elem').forEach((elem) => {
+        let attrs = {};
+       for(let attr of elem.attributes) {
+        attrs[attr.name] = attr.value;
+       }
+       attes['content'] = elem.innerHTML;
+       list.push(attrs); 
+      });
+      return {
+        title: title,
+        class: tut.getAttribute('class'),
+        dimensions: tut.getBoundingClientRect(),
+        list: list
+      };
+    }
+
+    function applyStyle() {
+      let style = document.querySelector('select.style').value;
+      document.getElementById('the-style').href = 'HUD/styles/' + style;
+    }
+  </script>
+</body>
+</html>
